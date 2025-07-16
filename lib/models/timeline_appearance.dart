@@ -1,0 +1,5 @@
+
+enum TimelineAppearance {
+  drawing,
+  cards
+}

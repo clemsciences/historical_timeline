@@ -1,0 +1,7 @@
+
+
+
+enum TimelineDirection {
+  horizontal,
+  vertical
+}
