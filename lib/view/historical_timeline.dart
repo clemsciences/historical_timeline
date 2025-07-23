@@ -14,6 +14,14 @@ class HistoricalTimeline extends StatelessWidget {
   final int endMargin;
   final Size size;
 
+  final String? filterString1;
+  final String? filterString2;
+  final String? filterString3;
+
+  final bool? filterBool1;
+  final bool? filterBool2;
+  final bool? filterBool3;
+
   HistoricalTimeline({
     super.key,
     required this.events,
@@ -21,7 +29,13 @@ class HistoricalTimeline extends StatelessWidget {
     required this.startMargin,
     required this.endMargin,
     required this.size,
-    required this.timelineAppearance
+    required this.timelineAppearance,
+    this.filterString1,
+    this.filterString2,
+    this.filterString3,
+    this.filterBool1,
+    this.filterBool2,
+    this.filterBool3,
   });
 
   @override
@@ -41,7 +55,7 @@ class HistoricalTimeline extends StatelessWidget {
           child: Container()
         ),
       ),
-      TimelineAppearance.cards => TimelineCards(items: events,)
+      TimelineAppearance.cards => TimelineCards(items: events, filterBool1: filterBool1, filterBool2: filterBool2, filterBool3: filterBool3, filterString1: filterString1, filterString2: filterString2, filterString3: filterString3)
       };
   }
 }
