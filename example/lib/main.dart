@@ -71,7 +71,8 @@ class TimelineExample extends StatelessWidget {
                     size: Size(300, 300),
                     endMargin: 50,
                     startMargin: 50,
-                    filterBool1: true,
+                    // filterBool1: true,
+                    filterListString1: ["république", "royaume"],
                     events: [
                       TimelineItem(
                         text: "Défaite d'Alésia.",
@@ -79,6 +80,7 @@ class TimelineExample extends StatelessWidget {
                         precision: DatetimePrecision.year(),
                         timestamp: DateTime(-52, 9),
                         bool1: true,
+                        string1: "empire",
                       ),
                       TimelineItem(
                         text: "Clovis devient roi des Francs.",
@@ -86,6 +88,7 @@ class TimelineExample extends StatelessWidget {
                         precision: DatetimePrecision.year(),
                         timestamp: DateTime(481),
                         bool1: false,
+                        string1: "royaume",
                       ),
                       TimelineItem(
                         text:
@@ -94,6 +97,7 @@ class TimelineExample extends StatelessWidget {
                         precision: DatetimePrecision.year(),
                         timestamp: DateTime(987, 6, 1),
                         bool1: false,
+                        string1: "royaume",
                       ),
                       TimelineItem(
                         text: "Fin de la Guerre de Cent Ans.",
@@ -101,6 +105,8 @@ class TimelineExample extends StatelessWidget {
                         precision: DatetimePrecision.year(),
                         timestamp: DateTime(1453),
                         bool1: false,
+                        string1: "royaume",
+
                       ),
                       TimelineItem(
                         timestamp: DateTime(1789),
@@ -108,6 +114,7 @@ class TimelineExample extends StatelessWidget {
                         text: "Révolution Française.",
                         label: "",
                         bool1: false,
+                        string1: "république",
                       ),
                       TimelineItem(
                         timestamp: DateTime(1958),
@@ -115,6 +122,7 @@ class TimelineExample extends StatelessWidget {
                         text: "Ve République.",
                         label: "",
                         bool1: false,
+                        string1: "république",
                       ),
                     ],
                   ),

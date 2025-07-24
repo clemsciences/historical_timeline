@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:historical_timeline/models/timeline_appearance.dart';
 import 'package:historical_timeline/card/timeline_cards.dart';
+import 'package:historical_timeline/models/timeline_appearance.dart';
 import 'package:historical_timeline/models/timeline_direction.dart';
 import 'package:historical_timeline/models/timeline_item.dart';
 import 'package:historical_timeline/paint/timeline_painter.dart';
@@ -22,6 +22,10 @@ class HistoricalTimeline extends StatelessWidget {
   final bool? filterBool2;
   final bool? filterBool3;
 
+  final List<String>? filterListString1;
+  final List<String>? filterListString2;
+  final List<String>? filterListString3;
+
   HistoricalTimeline({
     super.key,
     required this.events,
@@ -36,26 +40,41 @@ class HistoricalTimeline extends StatelessWidget {
     this.filterBool1,
     this.filterBool2,
     this.filterBool3,
+    this.filterListString1,
+    this.filterListString2,
+    this.filterListString3,
   });
 
   @override
   Widget build(BuildContext context) {
-    return switch(timelineAppearance) {
+    return switch (timelineAppearance) {
       TimelineAppearance.drawing => SizedBox(
         height: 400,
         width: 500,
         child: CustomPaint(
-        painter:
-              TimelinePainter(fromColor: Colors.blue,
-                  toColor: Colors.red,
-                  events: events,
-                  start: startMargin,
-                  end: endMargin),
+          painter: TimelinePainter(
+            fromColor: Colors.blue,
+            toColor: Colors.red,
+            events: events,
+            start: startMargin,
+            end: endMargin,
+          ),
           size: size,
-          child: Container()
+          child: Container(),
         ),
       ),
-      TimelineAppearance.cards => TimelineCards(items: events, filterBool1: filterBool1, filterBool2: filterBool2, filterBool3: filterBool3, filterString1: filterString1, filterString2: filterString2, filterString3: filterString3)
-      };
+      TimelineAppearance.cards => TimelineCards(
+        items: events,
+        filterBool1: filterBool1,
+        filterBool2: filterBool2,
+        filterBool3: filterBool3,
+        filterString1: filterString1,
+        filterString2: filterString2,
+        filterString3: filterString3,
+        filterListString1: filterListString1,
+        filterListString2: filterListString2,
+        filterListString3: filterListString3,
+      ),
+    };
   }
 }

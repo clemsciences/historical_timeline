@@ -8,6 +8,10 @@ class TimelineCards extends StatelessWidget {
   final String? filterString2;
   final String? filterString3;
 
+  final List<String>? filterListString1;
+  final List<String>? filterListString2;
+  final List<String>? filterListString3;
+
   final bool? filterBool1;
   final bool? filterBool2;
   final bool? filterBool3;
@@ -20,6 +24,9 @@ class TimelineCards extends StatelessWidget {
     this.filterBool1,
     this.filterBool2,
     this.filterBool3,
+    this.filterListString1,
+    this.filterListString2,
+    this.filterListString3,
   });
 
   @override
@@ -29,12 +36,17 @@ class TimelineCards extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: items
           .where((item) {
-            return (filterString1 == null || item.string1 == filterString1) &&
+            var keep = (filterString1 == null || item.string1 == filterString1) &&
                 (filterString2 == null || item.string2 == filterString2) &&
                 (filterString3 == null || item.string3 == filterString3) &&
                 (filterBool1 == null || item.bool1 == filterBool1) &&
                 (filterBool2 == null || item.bool2 == filterBool2) &&
-                (filterBool3 == null || item.bool3 == filterBool3);
+                (filterBool3 == null || item.bool3 == filterBool3) &&
+                (filterListString1 == null || filterListString1!.contains(item.string1)) &&
+                (filterListString2 == null || filterListString2!.contains(item.string2)) &&
+                (filterListString3 == null || filterListString3!.contains(item.string3));
+            return keep;
+        ;
           })
           .map((item) => TimelineCard(event: item))
           .toList(),
